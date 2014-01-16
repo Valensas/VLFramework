@@ -1,6 +1,6 @@
 {
 	"foo": "bar",
-	"float": 1.2345,
+	"floatValue": 1.2345,
 	"obj": {
 		"prop1": "1",
 		"array": [
