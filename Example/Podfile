@@ -1,5 +1,8 @@
 platform :ios, '6.0'
 
+
+requires_arc = true
+
 pod 'VLFramework', :path => '../'
 
 target :ExampleTests do

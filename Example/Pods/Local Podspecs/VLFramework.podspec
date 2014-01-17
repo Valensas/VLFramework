@@ -13,5 +13,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 2.0.3'
   s.dependency 'jastor', '~> 0.2.0'
-
+  s.dependency 'JRSwizzle', '~> 1.0'
+  
 end

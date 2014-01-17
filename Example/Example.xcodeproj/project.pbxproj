@@ -24,6 +24,10 @@
 		FBBA7D161886CC8A00CB562F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBBA7D141886CC8A00CB562F /* InfoPlist.strings */; };
 		FBBA7D181886CC8A00CB562F /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBA7D171886CC8A00CB562F /* ExampleTests.m */; };
 		FBBA7D2418880FB400CB562F /* VLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBA7D2318880FB400CB562F /* VLTestCase.m */; };
+		FBC97E4F188831F600A78BBF /* VLViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E4E188831F600A78BBF /* VLViewControllerTests.m */; };
+		FBC97E5218883D5400A78BBF /* TestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E5118883D5400A78BBF /* TestRequest.m */; };
+		FBC97E58188848F300A78BBF /* TestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E57188848F300A78BBF /* TestResponse.m */; };
+		FBC97E5B188849F600A78BBF /* TestInnerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E5A188849F600A78BBF /* TestInnerObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,13 @@
 		FBBA7D171886CC8A00CB562F /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		FBBA7D2218880FB400CB562F /* VLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLTestCase.h; sourceTree = "<group>"; };
 		FBBA7D2318880FB400CB562F /* VLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLTestCase.m; sourceTree = "<group>"; };
+		FBC97E4E188831F600A78BBF /* VLViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLViewControllerTests.m; sourceTree = "<group>"; };
+		FBC97E5018883D5400A78BBF /* TestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRequest.h; sourceTree = "<group>"; };
+		FBC97E5118883D5400A78BBF /* TestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRequest.m; sourceTree = "<group>"; };
+		FBC97E56188848F300A78BBF /* TestResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResponse.h; sourceTree = "<group>"; };
+		FBC97E57188848F300A78BBF /* TestResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResponse.m; sourceTree = "<group>"; };
+		FBC97E59188849F600A78BBF /* TestInnerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInnerObject.h; sourceTree = "<group>"; };
+		FBC97E5A188849F600A78BBF /* TestInnerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInnerObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +143,12 @@
 				FBBA7CFE1886CC8A00CB562F /* Main.storyboard */,
 				FBBA7D011886CC8A00CB562F /* VLViewController.h */,
 				FBBA7D021886CC8A00CB562F /* VLViewController.m */,
+				FBC97E5018883D5400A78BBF /* TestRequest.h */,
+				FBC97E5118883D5400A78BBF /* TestRequest.m */,
+				FBC97E56188848F300A78BBF /* TestResponse.h */,
+				FBC97E57188848F300A78BBF /* TestResponse.m */,
+				FBC97E59188849F600A78BBF /* TestInnerObject.h */,
+				FBC97E5A188849F600A78BBF /* TestInnerObject.m */,
 				FBBA7D041886CC8A00CB562F /* Images.xcassets */,
 				FBBA7CF31886CC8A00CB562F /* Supporting Files */,
 			);
@@ -156,6 +173,7 @@
 				FBBA7D2318880FB400CB562F /* VLTestCase.m */,
 				FBBA7D171886CC8A00CB562F /* ExampleTests.m */,
 				FBBA7D121886CC8A00CB562F /* Supporting Files */,
+				FBC97E4E188831F600A78BBF /* VLViewControllerTests.m */,
 			);
 			path = ExampleTests;
 			sourceTree = "<group>";
@@ -335,8 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBBA7CFD1886CC8A00CB562F /* VLAppDelegate.m in Sources */,
+				FBC97E5B188849F600A78BBF /* TestInnerObject.m in Sources */,
+				FBC97E5218883D5400A78BBF /* TestRequest.m in Sources */,
 				FBBA7D031886CC8A00CB562F /* VLViewController.m in Sources */,
 				FBBA7CF91886CC8A00CB562F /* main.m in Sources */,
+				FBC97E58188848F300A78BBF /* TestResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBBA7D2418880FB400CB562F /* VLTestCase.m in Sources */,
+				FBC97E4F188831F600A78BBF /* VLViewControllerTests.m in Sources */,
 				FBBA7D181886CC8A00CB562F /* ExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,10 @@
 //
 
 #import "Jastor.h"
+#import "VLResponse.h"
+
+@class AFHTTPRequestOperation;
+@class AFHTTPRequestOperationManager;
 
 @interface VLRequest : Jastor
 
@@ -16,6 +20,9 @@
 -(NSString*)method;
 -(NSString*)path;
 
-//test
++(AFHTTPRequestOperationManager*)defaultOperationManager;
++(void)setDefaultOperationManager:(AFHTTPRequestOperationManager*)manager;
+-(AFHTTPRequestOperationManager*)operationManager;
+-(AFHTTPRequestOperation*)operation;
 
 @end
