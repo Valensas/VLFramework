@@ -21,6 +21,9 @@
 // THE SOFTWARE.
 
 #import "VLTestCase.h"
+#import "TestRequest.h"
+#import <AFNetworking.h>
+#import <OCMockObject.h>
 
 NSString * const VLNetworkingTestsBaseURLString = @"https://httpbin.org/";
 
@@ -38,8 +41,54 @@ NSString * const VLNetworkingTestsBaseURLString = @"https://httpbin.org/";
 
 #pragma mark -
 
-- (NSURL *)baseURL {
-    return [NSURL URLWithString:VLNetworkingTestsBaseURLString];
+- (void)testBasicJastorMapping {
+    TestRequest *request = [TestRequest new];
+    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer new];
+    serializer.acceptableContentTypes = [serializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    request.operationManager.responseSerializer = serializer;
+    AFHTTPRequestOperation *operation = request.operation;
+    
+    __block id blockResponseObject = nil;
+    __block id blockError = nil;
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        blockResponseObject = responseObject;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        blockError = error;
+    }];
+    
+    [operation start];
+
+    expect([operation isFinished]).will.beTruthy();
+    expect(blockError).will.beNil();
+    expect(blockResponseObject).willNot.beNil;
+    expect(blockResponseObject).will.beInstanceOf([TestResponse class]);
+}
+
+- (void)testCorruptData {
+    TestRequest *request = [TestRequest new];
+    
+    OCMockObject *mockRequest = [OCMockObject partialMockForObject:request];
+    [[[mockRequest stub] andReturn:@"https://rawgithub.com/Valensas/VLFramework/master/Example/Resources/corrupt.json"] path];
+    
+    
+    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer new];
+    serializer.acceptableContentTypes = [serializer.acceptableContentTypes setByAddingObject:@"text/plain"];
+    request.operationManager.responseSerializer = serializer;
+    AFHTTPRequestOperation *operation = request.operation;
+    
+    __block id blockResponseObject = nil;
+    __block id blockError = nil;
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        blockResponseObject = responseObject;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        blockError = error;
+    }];
+    
+    [operation start];
+    
+    expect([operation isFinished]).will.beTruthy();
+    expect(blockError).willNot.beNil();
+    expect(blockResponseObject).will.beNil;
 }
 
 @end

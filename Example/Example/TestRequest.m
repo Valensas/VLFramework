@@ -12,7 +12,7 @@
 @implementation TestRequest
 
 -(NSString *)path {
-    return @"https://github.com/Valensas/VLFramework/raw/master/Example/Resources/test.json";
+    return @"https://rawgithub.com/Valensas/VLFramework/master/Example/Resources/test.json";
 }
 -(NSString *)method {
     return @"GET";

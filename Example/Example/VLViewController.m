@@ -28,22 +28,20 @@
     return request.operation;
 }
 
--(void)mainRequestDone:(AFHTTPRequestOperation *)request {
-    TestResponse *response = self.data;
-
+-(void)displayData:(TestResponse*)data {
     [self.tableView reloadData];
-    self.dataLabel.text = response.foo;
+    self.dataLabel.text = data.foo;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TestResponse *response = self.data;
+    TestResponse *response = self.vl_data;
     return response.obj.array.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    TestResponse *response = self.data;
+    TestResponse *response = self.vl_data;
     
     cell.textLabel.text = [response.obj.array[indexPath.row] description];
     
@@ -58,7 +56,7 @@
     
     AFHTTPRequestOperation *operaion = request.operation;
     [operaion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, TestResponse *responseObject) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"prop1: %@",responseObject.obj.prop1] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"foo: %@\nprop1: %@",responseObject.foo, responseObject.obj.prop1] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

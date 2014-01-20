@@ -24,8 +24,8 @@ static char vlIsRefreshingNeededKey;
 		AFHTTPRequestOperation *operation = [self mainRequest];
 		if (operation == nil) { //we may use this page without internet connection
 			self._vl_isRefreshingData = FALSE;
-            if ([self respondsToSelector:@selector(displayData)]) {
-                [self displayData];
+            if ([self respondsToSelector:@selector(displayData:)]) {
+                [self displayData:self.vl_data];
             }
             return;
 		}
@@ -37,7 +37,7 @@ static char vlIsRefreshingNeededKey;
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *_operation, id responseObject) {
             self._vl_isRefreshingData = FALSE;
             
-            self.data = responseObject;
+            self.vl_data = responseObject;
             
             if ([self respondsToSelector:@selector(mainRequestDone:)]) {
                 [self mainRequestDone:_operation];
@@ -64,14 +64,14 @@ static char vlIsRefreshingNeededKey;
 }
 -(void)setNeedsDisplayData
 {
-	if (self.data == nil) { //We don't have the data, so first get it
+	if (self.vl_data == nil) { //We don't have the data, so first get it
 		[self setNeedsRefreshData:NO];
 	} else { //We already have data, so just display them
 		if (self.view == nil) { //If this view is not on screen, display later when it appears
 			self._vl_redisplayNeeded = YES;
 		} else {
-            if ([self respondsToSelector:@selector(displayData)]) {
-                [self displayData];
+            if ([self respondsToSelector:@selector(displayData:)]) {
+                [self displayData:self.vl_data];
             }
             self._vl_redisplayNeeded = NO;
 		}
@@ -87,13 +87,55 @@ static char vlIsRefreshingNeededKey;
 }
 -(void)_vl_viewWillAppear:(BOOL)animated {
     [self _vl_viewWillAppear:animated];
-    if (self.data == nil) {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_vl_keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_vl_keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_vl_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_vl_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    if (self.vl_data == nil) {
         self._vl_redisplayNeeded = YES;
     }
 	if (self._vl_redisplayNeeded) {
         [self setNeedsDisplayData];
 	}
 }
+
+-(void)_vl_viewWillDisappear:(BOOL)animated {
+    [self _vl_viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark Dummy methods
+
+- (void)_vl_keyboardDidShow:(NSNotification*)aNotification {
+    if ([self respondsToSelector:@selector(vl_keyboardDidShow:)]) {
+        [self vl_keyboardDidShow:aNotification];
+    }
+}
+- (void)_vl_keyboardDidHide:(NSNotification*)aNotification {
+    if ([self respondsToSelector:@selector(vl_keyboardDidHide:)]) {
+        [self vl_keyboardDidHide:aNotification];
+    }
+    
+}
+- (void)_vl_keyboardWillShow:(NSNotification *)aNotification {
+    if ([self respondsToSelector:@selector(vl_keyboardWillShow:)]) {
+        [self vl_keyboardWillShow:aNotification];
+    }
+    
+}
+- (void)_vl_keyboardWillHide:(NSNotification *)aNotification {
+    if ([self respondsToSelector:@selector(vl_keyboardWillHide:)]) {
+        [self vl_keyboardWillHide:aNotification];
+    }
+    
+}
+
 
 #pragma mark Swizzling methods
 -(id)_vl_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -106,10 +148,10 @@ static char vlIsRefreshingNeededKey;
     [obj _vl_init];
     return obj;
 }
--(void)setData:(id)data {
-    objc_setAssociatedObject(self, &vlDataKey, data, OBJC_ASSOCIATION_RETAIN);
+-(void)setVl_data:(id)vl_data {
+    objc_setAssociatedObject(self, &vlDataKey, vl_data, OBJC_ASSOCIATION_RETAIN);
 }
--(id)data {
+-(id)vl_data {
     return objc_getAssociatedObject(self, &vlDataKey);
 }
 -(void)set_vl_redisplayNeeded:(BOOL)redisplayNeeded {

@@ -18,7 +18,7 @@ PODS:
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - Expecta (0.2.3)
-  - jastor (0.2.0)
+  - jastor (0.2.1)
   - JRSwizzle (1.0)
   - OCMock (2.1.1)
   - VLFramework (0.0.1):
@@ -38,7 +38,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
-  jastor: 886fabd197d3c3f9e8811a21bb7f91a6e5061044
+  jastor: 0937cb17c7b1417038783872732556a7aef52b21
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
   VLFramework: 51b55edba9dee5a94f86ab1b423a55177222581f

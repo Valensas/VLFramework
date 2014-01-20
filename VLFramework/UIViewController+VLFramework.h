@@ -11,25 +11,24 @@
 
 @interface UIViewController (VLFramework)
 
-@property (nonatomic, strong) id data;
+@property (nonatomic, strong) id vl_data;
 //@property (nonatomic) BOOL showsLoading;
 //@property (nonatomic) BOOL preventsTapGesture;
 //@property (nonatomic) BOOL isRefreshingData;
 
 -(void)setNeedsRefreshData:(BOOL)ignoreCache;
 -(void)setNeedsDisplayData;
--(void)displayData;
+-(void)displayData:(id)data;
 
 -(AFHTTPRequestOperation*)mainRequest;
 -(void)mainRequestStarted:(AFHTTPRequestOperation *)request;
 -(void)mainRequestDone:(AFHTTPRequestOperation *)request;
 -(void)mainRequestWentWrong:(AFHTTPRequestOperation *)request;
 
-//-(UIView*)findFirstResponder:(UIView*)parentView;
-//- (void)keyboardDidShow:(NSNotification*)aNotification;
-//- (void)keyboardDidHide:(NSNotification*)aNotification;
-//- (void)keyboardWillShow:(NSNotification *)aNotification;
-//- (void)keyboardWillHide:(NSNotification *)aNotification;
+- (void)vl_keyboardDidShow:(NSNotification*)aNotification;
+- (void)vl_keyboardDidHide:(NSNotification*)aNotification;
+- (void)vl_keyboardWillShow:(NSNotification *)aNotification;
+- (void)vl_keyboardWillHide:(NSNotification *)aNotification;
 
 
 
@@ -37,6 +36,7 @@
 
 -(void)_vl_viewDidLoad;
 -(void)_vl_viewWillAppear:(BOOL)animated;
+-(void)_vl_viewWillDisappear:(BOOL)animated;
 -(id)_vl_initWithCoder:(NSCoder *)aDecoder;
 -(id)_vl_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 

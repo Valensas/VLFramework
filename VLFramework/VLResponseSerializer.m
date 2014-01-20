@@ -27,7 +27,16 @@
 
 -(id)responseObjectForResponse:(NSURLResponse *)response data:(NSData *)data error:(NSError **)error {
     id result = [self.otherSerializer responseObjectForResponse:response data:data error:error];
-    return [[self.request.responseClass alloc] initWithDictionary:result];
+    if (*error) {
+        return result;
+    } else {
+        if ([self.request.responseClass isSubclassOfClass:[Jastor class]]) {
+            return [[self.request.responseClass alloc] initWithDictionary:result];
+        } else {
+            *error = [NSError errorWithDomain:@"VLFramework" code:0 userInfo:nil];
+            return nil;
+        }
+    }
 }
 
 @end
