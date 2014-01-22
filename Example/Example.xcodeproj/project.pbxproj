@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		FBA76F55188FBD7A00EC276F /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FBA76F56188FBD7A00EC276F /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				FBA76F59188FBD9400EC276F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8D9AC0EFBB8C4ABA81E4D99D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F90BEC13B4BC484AABF0357A /* libPods.a */; };
 		B42EC5598FAF426BBC253C9E /* libPods-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DE6E58ADE64C5D934AA377 /* libPods-ExampleTests.a */; };
@@ -259,6 +273,7 @@
 			targets = (
 				FBBA7CE81886CC8A00CB562F /* Example */,
 				FBBA7D091886CC8A00CB562F /* ExampleTests */,
+				FBA76F55188FBD7A00EC276F /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -345,6 +360,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-ExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FBA76F59188FBD9400EC276F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Valensas\";\ncompanyID=\"com.valensas\";\ncompanyURL=\"http://www.valensas.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"../Documentation\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"VLFramework\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--logformat xcode \\\n--ignore .m \\\n--ignore UIViewController+Private.h \\\n--keep-intermediate-files \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n--create-html \\\n--no-create-docset \\\n\"../VLFramework\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -409,6 +437,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FBA76F57188FBD7A00EC276F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FBA76F58188FBD7A00EC276F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		FBBA7D191886CC8A00CB562F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -556,6 +598,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FBA76F56188FBD7A00EC276F /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBA76F57188FBD7A00EC276F /* Debug */,
+				FBA76F58188FBD7A00EC276F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FBBA7CE41886CC8A00CB562F /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

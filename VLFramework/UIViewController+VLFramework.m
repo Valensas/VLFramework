@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+VLFramework.h"
+#import "UIViewController+Private.h"
 #import <objc/runtime.h>
 
 static char vlDataKey;
@@ -16,7 +17,7 @@ static char vlIsRefreshingNeededKey;
 
 @implementation UIViewController (VLFramework)
 
--(void)setNeedsRefreshData:(BOOL)ignoreCache {
+-(void)setNeedsRefreshData {
     if ([self respondsToSelector:@selector(mainRequest)] && !self._vl_isRefreshingData) {
 		self._vl_isRefreshingData = TRUE;
 		
@@ -28,10 +29,6 @@ static char vlIsRefreshingNeededKey;
                 [self displayData:self.vl_data];
             }
             return;
-		}
-		
-		if (ignoreCache) {
-			//request.cachePolicy = ASIDoNotReadFromCacheCachePolicy | ASIAskServerIfModifiedWhenStaleCachePolicy;
 		}
 		
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *_operation, id responseObject) {

@@ -9,6 +9,7 @@
 #import "VLFramework.h"
 #import "JRSwizzle.h"
 #import "UIViewController+VLFramework.h"
+#import "UIViewController+Private.h"
 
 @implementation VLFramework
 

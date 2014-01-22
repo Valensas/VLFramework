@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+/**
+ *  VLFramework configuration class
+ */
 @interface VLFramework : NSObject
 
 @end
