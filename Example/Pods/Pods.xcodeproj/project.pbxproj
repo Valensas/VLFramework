@@ -169,7 +169,7 @@
 		9DA665EAF1B745BE8C278EDC /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D564DA70E8864690A23DF125 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9DBB1BFA35D5464D850CDF76 /* VLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 83606A5FE1C04B4AB0AEDB98 /* VLResponse.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9E48133D5622488184857CFA /* VLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D2A157E0AC412AB00CEFFE /* VLRequest.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A1B6A3B985D442F388FBF43C /* UIViewController+VLFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 626B49F1BE164F8E8711F0B6 /* UIViewController+VLFramework.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A1B6A3B985D442F388FBF43C /* UIViewController+VLFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 626B49F1BE164F8E8711F0B6 /* UIViewController+VLFramework.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -w"; }; };
 		A27F6F97954F486F9DFC5045 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA31DD9CD1646F3B33AF854 /* Foundation.framework */; };
 		A4237622CE5040C4A46A40F6 /* EXPBlockDefinedMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 48312E46A29E49BB94E0CBEC /* EXPBlockDefinedMatcher.m */; };
 		A727552F798B4CA8A3825C08 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17F7C8C9686482AB3C4C78E /* MobileCoreServices.framework */; };

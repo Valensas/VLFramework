@@ -6,7 +6,7 @@
 //
 //
 
-@interface UIViewController (VLFramework)
+@interface UIViewController (VLPrivate)
 
 -(void)_vl_viewDidLoad;
 -(void)_vl_viewWillAppear:(BOOL)animated;

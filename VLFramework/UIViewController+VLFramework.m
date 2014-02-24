@@ -62,7 +62,7 @@ static char vlIsRefreshingNeededKey;
 -(void)setNeedsDisplayData
 {
 	if (self.vl_data == nil) { //We don't have the data, so first get it
-		[self setNeedsRefreshData:NO];
+		[self setNeedsRefreshData];
 	} else { //We already have data, so just display them
 		if (self.view == nil) { //If this view is not on screen, display later when it appears
 			self._vl_redisplayNeeded = YES;
