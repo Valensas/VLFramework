@@ -40,7 +40,10 @@
 
 static AFHTTPRequestOperationManager *defaultManager = nil;
 +(void)load {
-    defaultManager = [AFHTTPRequestOperationManager manager];
+    //Can be assigned on other class' load method. So, if it's not null don't assign default manager.
+    if (defaultManager == nil) {
+        defaultManager = [AFHTTPRequestOperationManager manager];
+    }
 }
 +(void)setDefaultOperationManager:(AFHTTPRequestOperationManager *)manager {
     defaultManager = manager;
