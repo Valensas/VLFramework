@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Valensas/VLFramework.git", :branch => "master" }
   s.source_files  = 'VLFramework', 'VLFramework/**/*.{h,m}'
   s.requires_arc = true
-  s.dependency 'AFNetworking', '~> 2.1’
+  s.dependency 'AFNetworking', '~> 2.1'
   s.dependency 'jastor', '~> 0.2'
   s.dependency 'JRSwizzle', '~> 1.0'
   
