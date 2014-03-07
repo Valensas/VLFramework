@@ -42,6 +42,7 @@
 		FBC97E5218883D5400A78BBF /* TestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E5118883D5400A78BBF /* TestRequest.m */; };
 		FBC97E58188848F300A78BBF /* TestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E57188848F300A78BBF /* TestResponse.m */; };
 		FBC97E5B188849F600A78BBF /* TestInnerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC97E5A188849F600A78BBF /* TestInnerObject.m */; };
+		FBCD3D1F18C89B5F00973496 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FBCD3D1E18C89B5F00973496 /* BaseRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		FBC97E57188848F300A78BBF /* TestResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResponse.m; sourceTree = "<group>"; };
 		FBC97E59188849F600A78BBF /* TestInnerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInnerObject.h; sourceTree = "<group>"; };
 		FBC97E5A188849F600A78BBF /* TestInnerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInnerObject.m; sourceTree = "<group>"; };
+		FBCD3D1D18C89B5F00973496 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		FBCD3D1E18C89B5F00973496 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				FBBA7CFE1886CC8A00CB562F /* Main.storyboard */,
 				FBBA7D011886CC8A00CB562F /* VLViewController.h */,
 				FBBA7D021886CC8A00CB562F /* VLViewController.m */,
+				FBCD3D1D18C89B5F00973496 /* BaseRequest.h */,
+				FBCD3D1E18C89B5F00973496 /* BaseRequest.m */,
 				FBC97E5018883D5400A78BBF /* TestRequest.h */,
 				FBC97E5118883D5400A78BBF /* TestRequest.m */,
 				FBC97E56188848F300A78BBF /* TestResponse.h */,
@@ -384,6 +389,7 @@
 				FBC97E5B188849F600A78BBF /* TestInnerObject.m in Sources */,
 				FBC97E5218883D5400A78BBF /* TestRequest.m in Sources */,
 				FBBA7D031886CC8A00CB562F /* VLViewController.m in Sources */,
+				FBCD3D1F18C89B5F00973496 /* BaseRequest.m in Sources */,
 				FBBA7CF91886CC8A00CB562F /* main.m in Sources */,
 				FBC97E58188848F300A78BBF /* TestResponse.m in Sources */,
 			);
@@ -605,6 +611,7 @@
 				FBA76F58188FBD7A00EC276F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBBA7CE41886CC8A00CB562F /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;

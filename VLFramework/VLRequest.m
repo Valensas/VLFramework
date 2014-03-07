@@ -9,6 +9,7 @@
 #import "VLRequest.h"
 #import "AFNetworking.h"
 #import "VLResponseSerializer.h"
+#import "UIAlertView+AFNetworking.h"
 
 @implementation VLRequest
 -(Class)responseClass {
@@ -27,23 +28,32 @@
     return dict;
 }
 -(AFHTTPRequestOperationManager *)operationManager {
-    return [self.class defaultOperationManager];
+    return _operationManager ?: [self.class defaultOperationManager];
+}
+-(Class)serializerClass {
+    return _serializerClass ?: [self.class defaultSerializerClass];
 }
 -(AFHTTPRequestOperation *)operation {
     AFHTTPRequestOperationManager *manager = [self operationManager];
     NSMutableURLRequest *request = [manager.requestSerializer requestWithMethod:self.method URLString:[[NSURL URLWithString:self.path relativeToURL:manager.baseURL] absoluteString] parameters:self.toDictionary];
     AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request success:nil failure:nil];
-    operation.responseSerializer = [VLResponseSerializer newWithOtherSerializer:operation.responseSerializer request:self];
+    operation.responseSerializer = [self.serializerClass newWithOtherSerializer:operation.responseSerializer request:self];
     
     return operation;
 }
 
+static Class defaultSerializerClass = nil;
 static AFHTTPRequestOperationManager *defaultManager = nil;
 +(void)load {
     //Can be assigned on other class' load method. So, if it's not null don't assign default manager.
     if (defaultManager == nil) {
         defaultManager = [AFHTTPRequestOperationManager manager];
     }
+
+    if (defaultSerializerClass == nil) {
+        defaultSerializerClass = [VLResponseSerializer class];
+    }
+
 }
 +(void)setDefaultOperationManager:(AFHTTPRequestOperationManager *)manager {
     defaultManager = manager;
@@ -51,5 +61,10 @@ static AFHTTPRequestOperationManager *defaultManager = nil;
 +(AFHTTPRequestOperationManager *)defaultOperationManager {
     return defaultManager;
 }
-
++(void)setDefaultSerializerClass:(Class)class {
+    defaultSerializerClass = class;
+}
++(Class)defaultSerializerClass {
+    return defaultSerializerClass;
+}
 @end

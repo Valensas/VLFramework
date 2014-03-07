@@ -6,8 +6,10 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+#import "UIViewController+VLFramework.h"
+#import "VLRequest.h"
+#import "VLResponseSerializer.h"
+#import "VLTableViewController.h"
 
 /**
  *  VLFramework configuration class

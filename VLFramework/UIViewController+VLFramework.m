@@ -30,7 +30,7 @@ static char vlIsRefreshingNeededKey;
             }
             return;
 		}
-		
+
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *_operation, id responseObject) {
             self._vl_isRefreshingData = FALSE;
             

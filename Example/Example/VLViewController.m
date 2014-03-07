@@ -54,14 +54,12 @@
     serializer.acceptableContentTypes = [serializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     request.operationManager.responseSerializer = serializer;
     
-    AFHTTPRequestOperation *operaion = request.operation;
-    [operaion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, TestResponse *responseObject) {
+    AFHTTPRequestOperation *operation = request.operation;
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, TestResponse *responseObject) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"foo: %@\nprop1: %@",responseObject.foo, responseObject.obj.prop1] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-    [operaion start];
+    } failure:nil];
+    [operation start];
 }
 
 @end

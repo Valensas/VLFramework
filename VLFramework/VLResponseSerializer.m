@@ -8,6 +8,13 @@
 
 #import "VLResponseSerializer.h"
 
+@interface VLResponseSerializer ()
+
+@property (nonatomic, weak) AFHTTPResponseSerializer *otherSerializer;
+@property (nonatomic, strong) VLRequest *request;
+
+@end
+
 @implementation VLResponseSerializer
 
 +(VLResponseSerializer*)newWithOtherSerializer:(AFHTTPResponseSerializer*)otherSerializer request:(VLRequest *)request {
@@ -33,7 +40,7 @@
         if ([self.request.responseClass isSubclassOfClass:[Jastor class]]) {
             return [[self.request.responseClass alloc] initWithDictionary:result];
         } else {
-            *error = [NSError errorWithDomain:@"VLFramework" code:0 userInfo:nil];
+            *error = [NSError errorWithDomain:@"VLFramework" code:0 userInfo:@{NSLocalizedDescriptionKey: @"Response Class is not a subclass of Jastor."}];
             return nil;
         }
     }

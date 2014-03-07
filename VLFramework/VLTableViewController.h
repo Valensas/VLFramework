@@ -10,4 +10,6 @@
 
 @interface VLTableViewController : UITableViewController
 
+@property (nonatomic, strong) UIView *pagingFooterView;
+
 @end

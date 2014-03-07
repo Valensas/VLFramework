@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Valensas. All rights reserved.
 //
 
-#import "VLRequest.h"
+#import "BaseRequest.h"
 #import "TestResponse.h"
 
-@interface TestRequest : VLRequest
+@interface TestRequest : BaseRequest
 
 @end

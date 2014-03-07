@@ -8,9 +8,7 @@
 
 #import "Jastor.h"
 #import "VLResponse.h"
-
-@class AFHTTPRequestOperation;
-@class AFHTTPRequestOperationManager;
+#import "AFNetworking.h"
 
 @interface VLRequest : Jastor
 
@@ -20,8 +18,14 @@
 -(NSString*)method;
 -(NSString*)path;
 
+@property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
+@property (nonatomic) Class serializerClass;
+
 +(AFHTTPRequestOperationManager*)defaultOperationManager;
 +(void)setDefaultOperationManager:(AFHTTPRequestOperationManager*)manager;
++(void)setDefaultSerializerClass:(Class)class;
++(Class)defaultSerializerClass;
+
 -(AFHTTPRequestOperationManager*)operationManager;
 -(AFHTTPRequestOperation*)operation;
 

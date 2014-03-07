@@ -9,6 +9,8 @@
 #import "VLTableViewController.h"
 #import "UIViewController+VLFramework.h"
 
+@class AFHTTPRequestOperation;
+
 @interface VLTableViewController () {
     CGFloat totalKeyboardOverlap;
     CGFloat keyboardOverlap;   
@@ -19,8 +21,23 @@
 
 -(void)displayData:(id)data {
     [self.tableView reloadData];
+    
+    if(self.pagingFooterView && [self hasMorePage]) {
+        self.tableView.tableFooterView = self.pagingFooterView;
+    } else if (self.pagingFooterView && ![self hasMorePage]) {
+        self.tableView.tableFooterView = nil;
+    }
 }
 
+#pragma mark paging
+
+-(BOOL)hasMorePage {
+    return NO;
+}
+
+-(AFHTTPRequestOperation*)mainRequestForNextPage {
+    return nil;
+}
 
 #pragma mark tableview frame <-> keyboard size
 -(void)vl_keyboardWillShow:(NSNotification *)aNotification {

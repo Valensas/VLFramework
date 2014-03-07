@@ -1,29 +1,30 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.2.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.2.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.2.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.2.0)
+  - AFNetworking/Security (2.2.0)
+  - AFNetworking/Serialization (2.2.0)
+  - AFNetworking/UIKit (2.2.0):
     - AFNetworking/NSURLConnection
-  - Expecta (0.2.3)
+    - AFNetworking/NSURLSession
+  - Expecta (0.2.4)
   - jastor (0.2.1)
   - JRSwizzle (1.0)
   - OCMock (2.1.1)
   - VLFramework (0.0.1):
-    - AFNetworking (~> 2.0.3)
-    - jastor (~> 0.2.0)
+    - AFNetworking (~> 2.1)
+    - jastor (~> 0.2)
     - JRSwizzle (~> 1.0)
 
 DEPENDENCIES:
@@ -36,11 +37,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
-  Expecta: dbc4a27fabb853bdd2e907e33f11ee43a9a47d0c
+  AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
+  Expecta: 5c147dedfea5fbcf773995f7e65020abcc936ce5
   jastor: 0937cb17c7b1417038783872732556a7aef52b21
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
-  VLFramework: 51b55edba9dee5a94f86ab1b423a55177222581f
+  VLFramework: eb1e739633400815efc7b6f66f967ec2b2a49b70
 
 COCOAPODS: 0.29.0

@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <VLFramework/UIViewController+VLFramework.h>
+#import <VLFramework/VLFramework.h>
 
 #define EXP_SHORTHAND
 #import <Expecta.h>
