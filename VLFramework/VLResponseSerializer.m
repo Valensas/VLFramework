@@ -17,8 +17,8 @@
 
 @implementation VLResponseSerializer
 
-+(VLResponseSerializer*)newWithOtherSerializer:(AFHTTPResponseSerializer*)otherSerializer request:(VLRequest *)request {
-    VLResponseSerializer *obj = [VLResponseSerializer new];
++(instancetype)newWithOtherSerializer:(AFHTTPResponseSerializer*)otherSerializer request:(VLRequest *)request {
+    VLResponseSerializer *obj = [self new];
     obj.otherSerializer = otherSerializer;
     obj.request = request;
     return obj;
