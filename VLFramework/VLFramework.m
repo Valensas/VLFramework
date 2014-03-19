@@ -19,6 +19,8 @@
     [UIViewController jr_swizzleMethod:@selector(initWithNibName:bundle:) withMethod:@selector(_vl_initWithNibName:bundle:) error:nil];
     [UIViewController jr_swizzleMethod:@selector(viewWillAppear:) withMethod:@selector(_vl_viewWillAppear:) error:nil];
     [UIViewController jr_swizzleMethod:@selector(viewWillDisappear:) withMethod:@selector(_vl_viewWillDisappear:) error:nil];
+    [UIViewController jr_swizzleMethod:@selector(viewDidAppear:) withMethod:@selector(_vl_viewDidAppear:) error:nil];
+    [UIViewController jr_swizzleMethod:@selector(viewDidDisappear:) withMethod:@selector(_vl_viewDidDisappear:) error:nil];
 }
 
 @end

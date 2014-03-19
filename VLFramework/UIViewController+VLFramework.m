@@ -100,12 +100,21 @@ static char vlIsRefreshingNeededKey;
 
 -(void)_vl_viewWillDisappear:(BOOL)animated {
     [self _vl_viewWillDisappear:animated];
+}
+
+-(void)_vl_viewDidAppear:(BOOL)animated {
+    [self _vl_viewDidAppear:animated];
+}
+
+-(void)_vl_viewDidDisappear:(BOOL)animated {
+    [self _vl_viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
+
 
 #pragma mark Dummy methods
 

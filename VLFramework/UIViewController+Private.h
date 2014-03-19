@@ -11,6 +11,8 @@
 -(void)_vl_viewDidLoad;
 -(void)_vl_viewWillAppear:(BOOL)animated;
 -(void)_vl_viewWillDisappear:(BOOL)animated;
+-(void)_vl_viewDidAppear:(BOOL)animated;
+-(void)_vl_viewDidDisappear:(BOOL)animated;
 -(id)_vl_initWithCoder:(NSCoder *)aDecoder;
 -(id)_vl_initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 
