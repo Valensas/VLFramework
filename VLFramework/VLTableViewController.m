@@ -71,7 +71,8 @@
     
     if(keyboardOverlap != 0)
     {
-        tableFrame.size.height -= keyboardOverlap;
+        UIEdgeInsets inset = tableView.contentInset;
+        inset.bottom += keyboardOverlap;
         
         NSTimeInterval delay = 0;
         if(keyboardRect.size.height)
@@ -82,7 +83,7 @@
         
         [UIView animateWithDuration:animationDuration delay:delay
                             options:UIViewAnimationOptionBeginFromCurrentState
-                         animations:^{ tableView.frame = tableFrame; }
+                         animations:^{ tableView.contentInset = inset; tableView.scrollIndicatorInsets = inset; }
                          completion:^(BOOL finished){
                              [self tableAnimationEnded:nil finished:nil contextInfo:nil]; }
          ];
@@ -110,8 +111,8 @@
     UIViewAnimationCurve animationCurve;
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     
-    CGRect tableFrame = tableView.frame;
-    tableFrame.size.height += totalKeyboardOverlap;
+    UIEdgeInsets inset = tableView.contentInset;
+    inset.bottom -= totalKeyboardOverlap;
     
     if(keyboardRect.size.height)
         animationDuration = animationDuration * totalKeyboardOverlap/keyboardRect.size.height;
@@ -119,7 +120,8 @@
     [UIView animateWithDuration:animationDuration delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
-                         tableView.frame = tableFrame;
+                         tableView.contentInset = inset;
+                         tableView.scrollIndicatorInsets = inset;
                      }
                      completion:nil];
     
